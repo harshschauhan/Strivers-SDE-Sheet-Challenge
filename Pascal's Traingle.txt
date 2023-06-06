@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+
+vector<vector<long long int>> printPascal(int n) 
+{
+  // Write your code here.
+  vector<vector<long long int>> pas;
+    
+    int i, j;
+    
+    pas.push_back({1});
+    if (n==1) return pas;
+    
+    pas.push_back({1, 1});
+    if (n==2) return pas;
+    
+    for (i=2; i<n; i++)
+    {
+        vector<long long int> v;
+        v.push_back(1);
+        
+        for(j=1; j<i; j++)
+        {
+            v.push_back(pas[i-1][j] + pas[i-1][j-1]);
+        }
+        
+        v.push_back(1);
+        pas.push_back(v);
+    }
+}
