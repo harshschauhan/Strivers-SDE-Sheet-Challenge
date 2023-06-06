@@ -1,0 +1,17 @@
+#include <bits/stdc++.h> 
+int maximumProfit(vector<int> &prices){
+    // Write your code here.
+    int prof, maxprof = 0, min = prices[0];
+    int n = prices.size();
+    
+    for (int i=1; i<n; i++)
+    {
+        prof = prices[i] - min;
+        if (prof < 0)
+            min = prices[i];
+        else if (prof > maxprof)
+            maxprof = prof;
+    }
+    
+    return maxprof;
+}
